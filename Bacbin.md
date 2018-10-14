@@ -1,17 +1,17 @@
 # CSS经典布局
 
 ---
-本文主要对一些常见的CSS布局问题进行总结，涉及三栏布局、负margin、清除浮动、居中布局、Flex布局，等等....
+本文主要对一些常见的CSS布局问题进行总结，涉及三栏布局、负margin、清除浮动、居中布局、Flex布局，等等....
 
 ## 基础
 
-一个界面友好的网站，能帮助了解一些大概的CSS布局知识。
+一个界面友好的网站，能帮助了解一些大概的CSS布局知识。
 
 - [学习CSS布局](http://zh.learnlayout.com/no-layout.html)
 
 ## 定位
 
-定位是最基本的一个布局问题，其定义一个元素相对于其他元素的位置，这个元素可以是父级元素，也可以是浏览器窗口。
+定位是最基本的一个布局问题，其定义一个元素相对于其他元素的位置，这个元素可以是父级元素，也可以是浏览器窗口。
 
 先从position属性说起，static、relative、absolute、fixed和sticky。
 
@@ -23,7 +23,7 @@
 
 - fixed：元素框不再占有文档流位置，并且相对于视窗进行定位.
 
-- sticky: "fixed" OR "relative",在屏幕范围内时，当作relative，当该元素移出屏幕范围（viewport）时，作为fixed。
+- sticky: "fixed" OR "relative",在屏幕范围内时，当作relative，当该元素移出屏幕范围（viewport）时，作为fixed。
 
 ## 三栏布局
 
@@ -44,7 +44,7 @@
 
 - 中间宽度设为`width：100%;`,占一行。
 
-- 左右box使用负margin`margin-left`，将它们提至于中间box同一行。
+- 左右box使用负margin`margin-left`，将它们提至于中间box同一行。
 
   - 左边盒子`margin-left:-100%;`。
 
@@ -87,11 +87,11 @@
 
 ### 何谓高度塌陷呢？
 
-要解决这个问题，需要先明晰两个概念**普通流**和**浮动**
+要解决这个问题，需要先明晰两个概念**普通流**和**浮动**
 
-1. 普通流（normal flow）：将窗体自上而下分成一行一行,并在每行中按从左至右的挨次排放元素,即为普通流/文档流。内联元素不会独占一行，而每个非浮动块级元素都独有一行。
+1. 普通流（normal flow）：将窗体自上而下分成一行一行,并在每行中按从左至右的挨次排放元素,即为普通流/文档流。内联元素不会独占一行，而每个非浮动块级元素都独有一行。
 
-2. 浮动(float)：浮动的框可以左右移动，直至它的外边缘遇到包含框或者另一个浮动框的边缘。需要注意的是，浮动框不属于普通流，当一个元素浮动之后，不会影响到块级框的布局而只会影响内联框（通常是文本）的排列，文档中的普通流就会表现得和浮动框不存在一样。
+2. 浮动(float)：浮动的框可以左右移动，直至它的外边缘遇到包含框或者另一个浮动框的边缘。需要注意的是，浮动框不属于普通流，当一个元素浮动之后，不会影响到块级框的布局而只会影响内联框（通常是文本）的排列，文档中的普通流就会表现得和浮动框不存在一样。
 
 正是因为浮动的这种特性，导致本属于普通流中的元素浮动之后，如果包含框内部不存在其他普通流元素，就会表现出高度为0（高度塌陷）。
 
@@ -99,7 +99,7 @@
 
 #### 1）添加额外标签
 
-通过在浮动元素末尾添加一个空的标签，例如```<div style="clear:both"></div>```，亦或是```<br clear="all" />```,但缺点是添加了无意义的标签。
+通过在浮动元素末尾添加一个空的标签，例如```<div style="clear:both"></div>```，亦或是```<br clear="all" />```,但缺点是添加了无意义的标签。
 
 #### 2）父元素也设置浮动
 
@@ -140,7 +140,7 @@ Static元素是没有设定成浮动的元素，
 
 ```css
 /*
-*mydiv1后续的元素向上移动10px，mydiv1本身并不会动
+*mydiv1后续的元素向上移动10px，mydiv1本身并不会动
 */
 #mydiv1 {
     margin-bottom: -10px;
@@ -178,7 +178,7 @@ Static元素是没有设定成浮动的元素，
 
 ![none](https://upload-images.jianshu.io/upload_images/1429373-e866b3bd75b3fa72.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/558/format/webp)
 
-- 只给box3加上`margin-left:-200px;`
+- 只给box3加上`margin-left:-200px;`
 
 ![none](https://upload-images.jianshu.io/upload_images/1429373-b37b58130a0b5570.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/515/format/webp)
 
@@ -192,23 +192,23 @@ Static元素是没有设定成浮动的元素，
 
   - 行内元素(inline)：`text-align:center;`
 
-  - 块级元素(block)：设置宽度且`margin-left`和`margin-right`为`auto`
+  - 块级元素(block)：设置宽度且`margin-left`和`margin-right`为`auto`
 
   - 多个块级元素：父元素设为`text-align:center;`，子元素设为`display:inline-block;`或用flex布局
 
-- 垂直居中
+- 垂直居中
 
   - 行内元素(inline)
 
-    - 单行，设置上下padding相等，或设置`height`和`line-height`相等
+    - 单行，设置上下padding相等，或设置`height`和`line-height`相等
 
-    - 多行，设置上下padding相等，或设置`display:tabel-cell`和`vertical-align:middle`,或使用flex布局
+    - 多行，设置上下padding相等，或设置`display:tabel-cell`和`vertical-align:middle`,或使用flex布局
 
-  - 块级元素(block)，父元素需设相对布局~~relative~~
+  - 块级元素(block)，父元素需设相对布局~~relative~~
 
-    - 已知高度：子元素使用绝对布局`top:50%`，再用负的margin-top向上拉
+    - 已知高度：子元素使用绝对布局`top:50%`，再用负的margin-top向上拉
 
-    - 未知高度：子元素使用绝对布局，`top:50%;transform:tranlateY(-50%);`
+    - 未知高度：子元素使用绝对布局，`top:50%;transform:tranlateY(-50%);`
 
 - 水平垂直居中
 
@@ -216,7 +216,7 @@ Static元素是没有设定成浮动的元素，
 
 ## Flex布局
 
-Flex布局，官称 *CSS Flexible Box*，是CSS3中的一种新的布局方式。Flexbox可以控制未知容器元素的对齐方式，排列方向，排列顺序等，甚至是在未知大小的容器。其主要特点是能够修改Flex容器内子元素(flex item)的宽度或高度。
+Flex布局，官称 *CSS Flexible Box*，是CSS3中的一种新的布局方式。Flexbox可以控制未知容器元素的对齐方式，排列方向，排列顺序等，甚至是在未知大小的容器。其主要特点是能够修改Flex容器内子元素(flex item)的宽度或高度。
 
 ### FLex 模块
 
@@ -226,7 +226,7 @@ Flex布局主要由父容器和它的子元素直接构成，，其中父元素�
 
 [有关Flex模块更详细的信息 ~~英语警告~~](https://www.w3.org/TR/css-flexbox/#box-model)
 
-### 使用方法
+### 使用方法
 
 使用Flex布局只需在父容器元素上设置`display`属性：
 
@@ -257,7 +257,7 @@ Flex布局主要由父容器和它的子元素直接构成，，其中父元素�
 ```css
 flex-container {
     flex-direction: row;
-    flex-direction: row-reverse;/*反向*/
+    flex-direction: row-reverse;/*反向*/
 }
 ```
 
@@ -265,7 +265,7 @@ flex-container {
 
 ![none](https://www.w3cplus.com/sites/default/files/blogs/2015/1504/flexbox-flex-direction-row-reverse.jpg)
 
-`flex-direction:column;`纵向排列，同理。
+`flex-direction:column;`纵向排列，同理。
 
 但注意，其默认值为row.
 
@@ -279,7 +279,7 @@ flex项目在flex容器中默认是只显示一行。如果希望控制flex项�
 }
 ```
 
-Flex项目在flex容器中默认显示一行，项目宽度将自动缩减来适应容器.
+Flex项目在flex容器中默认显示一行，项目宽度将自动缩减来适应容器.
 
 ![none](https://www.w3cplus.com/sites/default/files/blogs/2015/1504/flexbox-flex-wrap-nowrap.jpg)
 
